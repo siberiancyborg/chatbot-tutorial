@@ -12,11 +12,13 @@ Step by step guide: how to make your own Facebook messenger  chatbot using node.
 At least for now you can’t to separate communication between your bot and for example a manager for your page. So it makes sense to create a new page special for your bot. 
 How to do that?
 Eaaaasy 👌
+
 1. Go the this page https://www.facebook.com/pages/create/ 
 
  <img src="https://cdn-images-1.medium.com/max/1600/1*rE_pg264YFwr8Uked7PyXg.png" class="centerImage" width="480" height="345"/>
 
 2. I picked Entertainment option. In next steps it asks different options which you can always skip.
+
 3. Great! My page is ready and something like should be visible for you as well. I added the avatar and background photo (optional).
 
  <img src="https://cdn-images-1.medium.com/max/1600/1*ioU6dIS6AWfipvY0YuPTzA.png" class="centerImage" width="480" height="345"/>
