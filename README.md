@@ -39,7 +39,11 @@ Eaaaasy 👌
 <img src="https://cdn-images-1.medium.com/max/1600/1*nrLT3Xti1-MxAGxKrQNxDw.png" width="480" height="245"/>
 
 ## Install messenger-bot, a node client for sending and receiving messages
-First, make sure you have node.js >= 4.0.0 installed. Then, open up terminal, navigate to the directory you want to host your project in, and run: npm install messenger-bot. messenger-bot is an excellent, lightweight node client that will save you the hassle of setting up a node server from scratch. Even so, the code for messenger-bot is only 131 lines, making it extremely easy to understand and further customize, if you wish.
+First, make sure you have node.js >= 4.0.0 installed. Then, open up terminal, navigate to the directory you want to host your project in, and run:
+
+   npm install messenger-bot
+
+messenger-bot is an excellent, lightweight node client that will save you the hassle of setting up a node server from scratch. Even so, the code for messenger-bot is only 131 lines, making it extremely easy to understand and further customize, if you wish.
 
 Create a new file called app.js and copy-paste in this code, originally taken and modified from messenger-bot's examples directory (Note: if you copy-paste directly from github, it won't work!).
 
