@@ -160,3 +160,109 @@ Now let’s check the most interesting part — how we can customise our bot
 I’ll go through all the important parts of creating your chatbot like: greeting, get started button, structed messages etc. 
 Let’s start with the entry points!
 
+#### Making Getting Started button
+Copy the code below to your Terminal and run it. You could check this code in the Facebook documentation. Don’t forget to change “payload” and of course “PAGE_ACCESS_TOKEN”. Let’s use payload “NEWS” that I have already (you will see it later in the code).
+
+   curl -X POST -H "Content-Type: application/json" -d '{
+     "setting_type":"call_to_actions",
+     "thread_state":"new_thread",
+     "call_to_actions":[
+       {
+         "payload":"NEWS"
+       }
+     ]
+   }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
+
+2. If everything is okay you will see something like that in your Terminal.
+
+<img src="https://cdn-images-1.medium.com/max/1600/1*qwnuOXITjRyaQ2ViHpfbBw.png" width="480" height="345"/>
+
+3. Let’s check how it works. Delete your bot from the messenger so you start conversation again. You should see “Get started button”.
+
+<img src="https://cdn-images-1.medium.com/max/1600/1*0Mh_6VG7Vi3ASrzdQSAuaA.png" width="480" height="345"/>
+
+#### Making the greeting text 
+Okay, besides “Get Started” button you could create a welcome message. This can be used obviously only once. 
+The same algorithm. 
+Copy this code to your terminal and run it. You could customise the message ( but it has 160 character limit). And… Change access_code to your token.
+
+   curl -X POST -H "Content-Type: application/json" -d '{
+     "setting_type":"greeting",
+     "greeting":{
+       "text":"Welcome to BotSpot Vienna!"
+     }
+   }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
+   
+#### Making a Persistent Menu 
+For better user experience it would be cool to have a menu that always is available for the user. It’s not a big deal, let’s make it!
+Copy the code in your text editor, customise it depends how you want to see it, change your access_token and run in terminal. Additionally, you could use emojis as well.
+
+      curl -X POST -H "Content-Type: application/json" -d '{
+        "setting_type" : "call_to_actions",
+        "thread_state" : "existing_thread",
+        "call_to_actions":[
+          {
+            "type":"postback",
+            "title":"Help",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
+          },
+          {
+            "type":"postback",
+            "title":"Start a New Order",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
+          },
+          {
+            "type":"web_url",
+            "title":"View Website",
+            "url":"http://petersapparel.parseapp.com/"
+          }
+        ]
+      }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
+      
+   2. Check it! For my Boty McBotFace bot it looks like that.
+  
+  <img src=" https://cdn-images-1.medium.com/max/1600/1*fUMsfoSF2kGQRxr_8cLBwA.png" width="480" height="345"/>
+  
+Looks cool, right? 💓
+Now our newborn bot already has a menu, getting started button and even greeting message. You still have some energy? Let’s add some functionality for our bot! 
+So, what else can we do?
+
+#### Send a Structured Message
+There are different types of messages you could see make on Facebook: the Button and Generic Template can render buttons that open a URL or make a back-end call to your webhook. The Receipt Template can be used to send a receipt.
+
+  <img src="https://cdn-images-1.medium.com/max/1600/1*iu-LKrjgeA-OYgFP5HK50g.jpeg" width="480" height="345"/>
+  
+ How we could implement it? 
+Copy the code below to index.js to send an test message back as a menu I use for my bot.
+
+As you could see with Node.js you can use emojis, so let’s make our Generic more user friendly. 😌
+2. Update the webhook API to look for special messages to trigger the menu and to send back a postback function.
+
+   app.post('/webhook/', function (req, res) {
+       let messaging_events = req.body.entry[0].messaging
+       for (let i = 0; i < messaging_events.length; i++) {
+         let event = req.body.entry[0].messaging[i]
+         let sender = event.sender.id
+         if (event.message && event.message.text) {
+           let text = event.message.text
+           if (text === 'Menu') {
+               sendGenericMessage(sender)
+               continue
+           }
+           sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+         }
+         if (event.postback) {
+           let text = JSON.stringify(event.postback)
+           sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+           continue
+         }
+       }
+       res.sendStatus(200)
+     })
+
+3. Open up Terminal again and deploy it.
+
+4. Let’s try it! Type “Menu” and see what’s happens.
+
+  <img src="https://cdn-images-1.medium.com/max/1600/1*mGoT-5pqdLChM1TH-7aqMg.png" width="480" height="345"/>
+
