@@ -238,27 +238,27 @@ Copy the code below to index.js to send an test message back as a menu I use for
 As you could see with Node.js you can use emojis, so let’s make our Generic more user friendly. 😌
 2. Update the webhook API to look for special messages to trigger the menu and to send back a postback function.
 
-   app.post('/webhook/', function (req, res) {
-       let messaging_events = req.body.entry[0].messaging
-       for (let i = 0; i < messaging_events.length; i++) {
-         let event = req.body.entry[0].messaging[i]
-         let sender = event.sender.id
-         if (event.message && event.message.text) {
-           let text = event.message.text
-           if (text === 'Menu') {
-               sendGenericMessage(sender)
-               continue
-           }
-           sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
-         }
-         if (event.postback) {
-           let text = JSON.stringify(event.postback)
-           sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
-           continue
-         }
-       }
-       res.sendStatus(200)
-     })
+      app.post('/webhook/', function (req, res) {
+          let messaging_events = req.body.entry[0].messaging
+          for (let i = 0; i < messaging_events.length; i++) {
+            let event = req.body.entry[0].messaging[i]
+            let sender = event.sender.id
+            if (event.message && event.message.text) {
+              let text = event.message.text
+              if (text === 'Menu') {
+                  sendGenericMessage(sender)
+                  continue
+              }
+              sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+            }
+            if (event.postback) {
+              let text = JSON.stringify(event.postback)
+              sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+              continue
+            }
+          }
+          res.sendStatus(200)
+        })
 
 3. Open up Terminal again and deploy it.
 
