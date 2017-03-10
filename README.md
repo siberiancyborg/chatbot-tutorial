@@ -89,7 +89,7 @@ There are different options how to do that, as I mentioned before I will use ngr
 Use ngrok to set up a secure tunnel to your localhost server. ngrok is a tool that allows you to easily expose your localhost server to the outside world, and I'm including it in this tutorial because it's the fastest way to get your bot up and running. 
 If you don't already have ngrok installed, download it here (https://ngrok.com/). 
 
-Then open up a new tab in terminal and run 
+Then open up a new tab in terminal and run (note: unable port, ask Matthias)
       ./ngrok http 3000. 
 You should see a screen displaying information about the tunnel; for this tutorial, you'll need the https url forwarding to your localhost, which in my case is https://944e4d4b.ngrok.io (second link, every important to have it with a certificate. Copy this link to your clipboard, as Facebook will ask for it in the next step. 
 
