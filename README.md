@@ -41,7 +41,7 @@ Eaaaasy 👌
 ## Install messenger-bot, a node client for sending and receiving messages
 First, make sure you have node.js >= 4.0.0 installed. Then, open up terminal, navigate to the directory you want to host your project in, and run:
 
-   npm install messenger-bot
+     npm install messenger-bot
 
 messenger-bot is an excellent, lightweight node client that will save you the hassle of setting up a node server from scratch. Even so, the code for messenger-bot is only 131 lines, making it extremely easy to understand and further customize, if you wish.
 
@@ -84,17 +84,21 @@ Go back to your Facebook app page and replace PAGE_TOKEN in your app.js file wit
 To receive messages and other events sent by Messenger users, the app should enable webhooks integration. 
 There are different options how to do that, as I mentioned before I will use ngrok. 
 
+1. Setup ngrock
+
 Use ngrok to set up a secure tunnel to your localhost server. ngrok is a tool that allows you to easily expose your localhost server to the outside world, and I'm including it in this tutorial because it's the fastest way to get your bot up and running. 
 If you don't already have ngrok installed, download it here (https://ngrok.com/). 
 
-Then open up a new tab in terminal and run ./ngrok http 3000. 
+Then open up a new tab in terminal and run 
+      ./ngrok http 3000. 
 You should see a screen displaying information about the tunnel; for this tutorial, you'll need the https url forwarding to your localhost, which in my case is https://944e4d4b.ngrok.io (second link, every important to have it with a certificate. Copy this link to your clipboard, as Facebook will ask for it in the next step. 
 
 <img src="https://dl.dropboxusercontent.com/u/40355435/blog_post_bot/ngrok.png" width="480" height="245"/>
 
 ##### Note: Of course, if you want your bot to be available 24/7 even when your computer's not running, you'll eventually want to deploy your server to a third-party hosting service like Heroku, AWS, or Azure. Just don't forget to update webhooks and run the curl command (steps 4 and 5) from that server as well!
 
-9. Set up your Facebook Messenger webhooks. Return to your app page and click the "Setup Webhooks" button in the "Webhooks" section. Paste your ngrok url into the callback url, use "VERIFY_TOKEN" as your verify token (it's the default in your app.js file; feel free to change both if you wish), select all the subscription fields, and press "Verify and Save."
+2. Set up your Facebook Messenger webhooks. 
+Return to your app page and click the "Setup Webhooks" button in the "Webhooks" section. Paste your ngrok url into the callback url, use "VERIFY_TOKEN" as your verify token (it's the default in your app.js file; feel free to change both if you wish), select all the subscription fields, and press "Verify and Save."
 After it should look like that:
 
 <img src="https://dl.dropboxusercontent.com/u/40355435/blog_post_bot/setup_webhooks.png" width="480" height="245"/>
