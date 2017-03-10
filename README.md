@@ -193,40 +193,6 @@ Copy this code to your terminal and run it. You could customise the message ( bu
      }
    }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
    
-#### Making a Persistent Menu 
-For better user experience it would be cool to have a menu that always is available for the user. It’s not a big deal, let’s make it!
-Copy the code in your text editor, customise it depends how you want to see it, change your access_token and run in terminal. Additionally, you could use emojis as well.
-
-      curl -X POST -H "Content-Type: application/json" -d '{
-        "setting_type" : "call_to_actions",
-        "thread_state" : "existing_thread",
-        "call_to_actions":[
-          {
-            "type":"postback",
-            "title":"Help",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
-          },
-          {
-            "type":"postback",
-            "title":"Start a New Order",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
-          },
-          {
-            "type":"web_url",
-            "title":"View Website",
-            "url":"http://petersapparel.parseapp.com/"
-          }
-        ]
-      }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
-      
-   2. Check it! For my Boty McBotFace bot it looks like that.
-  
-  <img src=" https://cdn-images-1.medium.com/max/1600/1*fUMsfoSF2kGQRxr_8cLBwA.png" width="480" height="345"/>
-  
-Looks cool, right? 💓
-Now our newborn bot already has a menu, getting started button and even greeting message. You still have some energy? Let’s add some functionality for our bot! 
-So, what else can we do?
-
 #### Send a Structured Message
 There are different types of messages you could see make on Facebook: the Button and Generic Template can render buttons that open a URL or make a back-end call to your webhook. The Receipt Template can be used to send a receipt.
 
@@ -265,4 +231,8 @@ As you could see with Node.js you can use emojis, so let’s make our Generic mo
 4. Let’s try it! Type “Menu” and see what’s happens.
 
   <img src="https://cdn-images-1.medium.com/max/1600/1*mGoT-5pqdLChM1TH-7aqMg.png" width="480" height="345"/>
+  
+  For further customisation please check the Facebook documentation: https://developers.facebook.com/docs/messenger-platform
+  
+  Best of luck with your bots, thanks for reading! :) 
 
