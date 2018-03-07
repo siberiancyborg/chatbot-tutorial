@@ -1,0 +1,22 @@
+{
+  "name": "chatbot-tutorial",
+  "version": "1.0.0",
+  "description": "Step by step guide: how to make your own Facebook messenger  chatbot using node.js and ngrok.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siberiancyborg/chatbot-tutorial.git"
+  },
+  "author": "Natalie Korotaeva, Rene Tanczos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siberiancyborg/chatbot-tutorial/issues"
+  },
+  "homepage": "https://github.com/siberiancyborg/chatbot-tutorial#readme",
+  "dependencies": {
+    "messenger-bot": "^2.4.0"
+  }
+}
