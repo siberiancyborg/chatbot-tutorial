@@ -4,7 +4,7 @@ Step by step guide: how to make your own Facebook messenger  chatbot using node.
 ## What will you need?
 1. Atom https://atom.io/
 2. node.js >= 4.0.0 (https://nodejs.org/en/download/)
-3. Messenger-bot from github (https://github.com/remixz/messenger-bot) 
+3. Messenger-bot from github (https://github.com/remixz/messenger-bot)
 4. Ngrok https://ngrok.com/
 5. Facebook documentation (https://developers.facebook.com/docs/messenger-platform)
 
@@ -13,7 +13,7 @@ At least for now you can’t to separate communication between your bot and for 
 How to do that?
 Eaaaasy 👌
 
-1. Go the this page https://www.facebook.com/pages/create/ 
+1. Go the this page https://www.facebook.com/pages/create/
 
  <img src="https://cdn-images-1.medium.com/max/1600/1*rE_pg264YFwr8Uked7PyXg.png" class="centerImage" width="480" height="345"/>
 
@@ -28,11 +28,11 @@ Eaaaasy 👌
 2. Choose “basic setup”
 
  <img src="https://cdn-images-1.medium.com/max/1600/1*RMHojq2KMP_sRvelpRZjGQ.png" width="480" height="345"/>
- 
+
 3. Fill the form, click “Create APP id”.
-  
+
  <img src="https://cdn-images-1.medium.com/max/1600/1*_Fevz5jB7hx7VDkxmCxj5g.png" width="480" height="345"/>
- 
+
 4. Next screen, in the left side check “messenger” and click “start”
 5. Then choose a FB page for a bot (that you created before) and copy the token. Save somewhere this token, because you will need it again quite soon.
 
@@ -75,7 +75,7 @@ Create a new file called app.js and copy-paste in this code, originally taken an
       })
 
     http.createServer(bot.middleware()).listen(3000)
-    
+
 Go back to your Facebook app page and replace PAGE_TOKEN in your app.js file with your actual token. Feel free to leave VERIFY_TOKEN as is; if you change it, be sure to use the same token in the next step, when you set up your bot's webhook subscription. To run your server, type node app.js in your terminal. If there are no error messages, that means your server is working!
 
 
@@ -86,18 +86,18 @@ There are different options how to do that, as I mentioned before I will use ngr
 
 1. Setup ngrock
 
-Use ngrok to set up a secure tunnel to your localhost server. ngrok is a tool that allows you to easily expose your localhost server to the outside world, and I'm including it in this tutorial because it's the fastest way to get your bot up and running. 
-If you don't already have ngrok installed, download it here (https://ngrok.com/). 
+Use ngrok to set up a secure tunnel to your localhost server. ngrok is a tool that allows you to easily expose your localhost server to the outside world, and I'm including it in this tutorial because it's the fastest way to get your bot up and running.
+If you don't already have ngrok installed, download it here (https://ngrok.com/).
 
 Then open up a new tab in terminal and run (note: unable port, ask Matthias)
-      ./ngrok http 3000. 
-You should see a screen displaying information about the tunnel; for this tutorial, you'll need the https url forwarding to your localhost, which in my case is https://944e4d4b.ngrok.io (second link, every important to have it with a certificate. Copy this link to your clipboard, as Facebook will ask for it in the next step. 
+      ./ngrok http 3000.
+You should see a screen displaying information about the tunnel; for this tutorial, you'll need the https url forwarding to your localhost, which in my case is https://944e4d4b.ngrok.io (second link, every important to have it with a certificate. Copy this link to your clipboard, as Facebook will ask for it in the next step.
 
 <img src="https://dl.dropboxusercontent.com/u/40355435/blog_post_bot/ngrok.png" width="480" height="245"/>
 
 ##### Note: Of course, if you want your bot to be available 24/7 even when your computer's not running, you'll eventually want to deploy your server to a third-party hosting service like Heroku, AWS, or Azure. Just don't forget to update webhooks and run the curl command (steps 4 and 5) from that server as well!
 
-2. Set up your Facebook Messenger webhooks. 
+2. Set up your Facebook Messenger webhooks.
 Return to your app page and click the "Setup Webhooks" button in the "Webhooks" section. Paste your ngrok url into the callback url, use "VERIFY_TOKEN" as your verify token (it's the default in your app.js file; feel free to change both if you wish), select all the subscription fields, and press "Verify and Save."
 After it should look like that:
 
@@ -113,8 +113,8 @@ If you done everything right, you should see this screen:
  Go again to Terminal and type in this command to trigger the Facebook app to send messages. Remember to use the token you requested earlier? We need it now. Just don’t forget instead “<PAGE_ACCESS_TOKEN>” post your own token. 
 
      url -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=<PAGE_ACCESS_TOKEN>"
-     
-    
+
+
 Now let’s see what our bot actually can do.
 
 ## Making easy echo-bot🚀
@@ -137,7 +137,7 @@ Add an API endpoint to index.js to process messages. Remember to also include th
       })
 
       const token = "<PAGE_ACCESS_TOKEN>"
-      
+
 ### 2. Add a function to echo back messages. 
       function sendTextMessage(sender, text) {
           let messageData = { text:text }
@@ -202,12 +202,12 @@ Copy this code to your terminal and run it. You could customise the message ( bu
        "text":"Welcome to BotSpot Vienna!"
      }
    }' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
-   
+
 #### Send a Structured Message
 There are different types of messages you could see make on Facebook: the Button and Generic Template can render buttons that open a URL or make a back-end call to your webhook. The Receipt Template can be used to send a receipt.
 
   <img src="https://cdn-images-1.medium.com/max/1600/1*iu-LKrjgeA-OYgFP5HK50g.jpeg" width="480" height="345"/>
-  
+
  How we could implement it? 
 Copy the code below to index.js to send an test message back as a menu I use for my bot.
 
@@ -241,8 +241,9 @@ As you could see with Node.js you can use emojis, so let’s make our Generic mo
 4. Let’s try it! Type “Menu” and see what’s happens.
 
   <img src="https://cdn-images-1.medium.com/max/1600/1*mGoT-5pqdLChM1TH-7aqMg.png" width="480" height="345"/>
-  
-  For further customisation please check the Facebook documentation: https://developers.facebook.com/docs/messenger-platform
-  
-  Best of luck with your bots, thanks for reading! :) 
 
+  For further customisation please check the Facebook documentation: https://developers.facebook.com/docs/messenger-platform
+
+  Best of luck with your bots, thanks for reading! :)
+
+# Rene is awesome!!
