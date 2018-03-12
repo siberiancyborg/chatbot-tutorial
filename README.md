@@ -93,7 +93,7 @@ Then open up a new tab in terminal and run (note: unable port, ask Matthias)
       ./ngrok http 3000.
 You should see a screen displaying information about the tunnel; for this tutorial, you'll need the https url forwarding to your localhost, which in my case is https://944e4d4b.ngrok.io (second link, every important to have it with a certificate. Copy this link to your clipboard, as Facebook will ask for it in the next step.
 
-<img src="https://dl.dropboxusercontent.com/u/40355435/blog_post_bot/ngrok.png" width="480" height="245"/>
+<img src="https://s9.postimg.org/4kfgbv9jz/Screen_Shot_2018-03-12_at_20.32.04.png" width="480" height="245"/>
 
 ##### Note: Of course, if you want your bot to be available 24/7 even when your computer's not running, you'll eventually want to deploy your server to a third-party hosting service like Heroku, AWS, or Azure. Just don't forget to update webhooks and run the curl command (steps 4 and 5) from that server as well!
 
