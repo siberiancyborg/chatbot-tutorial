@@ -99,10 +99,7 @@ You should see a screen displaying information about the tunnel; for this tutori
 
 2. Set up your Facebook Messenger webhooks.
 Return to your app page and click the "Setup Webhooks" button in the "Webhooks" section. Paste your ngrok url into the callback url, use "VERIFY_TOKEN" as your verify token (it's the default in your app.js file; feel free to change both if you wish), select all the subscription fields, and press "Verify and Save."
-After it should look like that:
-
-<img src="https://dl.dropboxusercontent.com/u/40355435/blog_post_bot/setup_webhooks.png" width="480" height="245"/>
-
+<img src="https://s9.postimg.org/97lie54rz/Screen_Shot_2018-03-12_at_21.43.42.png" width="480" height="245"/>
 
 If you done everything right, you should see this screen:
 
