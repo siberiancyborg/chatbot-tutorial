@@ -1,5 +1,5 @@
 
-Step by step guide: how to make your own Facebook messenger  chatbot using node.js and ngrok.
+Step by step guide: how to make your own Facebook messenger  chatbot using node.js and ngrok. 
  <img src="https://s9.postimg.org/ay4jf6z1b/Screen_Shot_2018-03-12_at_20.31.48.png" class="centerImage" width="580" height="300"/>
 ## What will you need?
 1. Atom https://atom.io/
@@ -247,5 +247,3 @@ As you could see with Node.js you can use emojis, so let’s make our Generic mo
   For further customisation please check the Facebook documentation: https://developers.facebook.com/docs/messenger-platform
 
   Best of luck with your bots, thanks for reading! :)
-
-# Rene is awesome!!
