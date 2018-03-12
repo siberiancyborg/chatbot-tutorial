@@ -105,6 +105,11 @@ If you done everything right, you should see this screen:
 
 <img src="https://cdn-images-1.medium.com/max/1600/1*h5Vp2Dq0XvusLU0W9U7sLw.png" width="480" height="245"/>
 
+3. Also, please don't forget to choose your page. 
+
+<img src="https://s9.postimg.org/4zvbioalb/Screen_Shot_2018-03-12_at_21.43.53.png" width="480" height="245"/>
+
+
 ## Subscribe your app to the Facebook page
 
  Go again to Terminal and type in this command to trigger the Facebook app to send messages. Remember to use the token you requested earlier? We need it now. Just don’t forget instead “<PAGE_ACCESS_TOKEN>” post your own token. 
