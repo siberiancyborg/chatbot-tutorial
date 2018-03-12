@@ -8,6 +8,8 @@ Step by step guide: how to make your own Facebook messenger  chatbot using node.
 4. Ngrok https://ngrok.com/
 5. Facebook documentation (https://developers.facebook.com/docs/messenger-platform)
 
++ plus the additional presentations with more screenshots from @gravmatt: http://bit.ly/2wwcOUK (in case you want more :))
+
 ## Create a FB page (if you know it already go to the next step)
 At least for now you can’t to separate communication between your bot and for example a manager for your page. So it makes sense to create a new page special for your bot. 
 How to do that?
